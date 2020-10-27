@@ -1,0 +1,39 @@
+{
+  "name": "typescript-ddd-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-integration": "mocha --config src/shared/infra/testing/.mocharc-integration.yml -r ts-node/register src/**/*.spec.ts",
+    "test-integration:watch": "npm run test-integration -- --watch-files src/**/*.ts --watch",
+    "test-unit": "mocha -r ts-node/register src/**/*.unit.ts",
+    "test-unit:watch": "npm run test-unit -- --watch-files src/**/*.ts --watch",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.3",
+    "@types/node": "^14.14.2",
+    "@types/sequelize": "^4.28.9",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.12.0",
+    "mocha": "^8.2.0",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "awilix": "^4.2.7",
+    "dotenv": "^8.2.0",
+    "pg": "^8.4.1",
+    "promise-retry": "^2.0.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.3.5",
+    "typeorm": "^0.2.28"
+  }
+}

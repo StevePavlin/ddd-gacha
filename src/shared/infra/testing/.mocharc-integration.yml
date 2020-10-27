@@ -1,0 +1,5 @@
+file: ./src/shared/infra/testing/setup-integration.ts
+ignore: node_modules/**
+exit: true
+timeout: 120000
+recursive: true
