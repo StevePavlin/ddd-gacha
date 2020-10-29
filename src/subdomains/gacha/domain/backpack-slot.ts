@@ -1,14 +1,16 @@
 import {Item} from "./item";
-import {Player} from "./player";
+import {Entity} from "../../../shared/kernel/Entity";
 
-export class BackpackSlot {
+export class BackpackSlot extends Entity {
 
     constructor(
         private item: Item,
         private quantity: number,
         private position: number,
-        private id?: number
-    ) {}
+        id?: number
+    ) {
+        super(id);
+    }
 
     getItem() {
         return this.item;
@@ -27,10 +29,6 @@ export class BackpackSlot {
             throw new Error(`Invalid position (must be >= 1)`)
         }
         this.position = position;
-    }
-
-    getId() {
-        return this.id;
     }
 
     increaseQuantity(amount: number) {

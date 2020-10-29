@@ -9,7 +9,7 @@ import {container} from "../../infra/ioc/container";
 import {AddItemToBackpack} from "./add-item-to-backpack";
 import {IGachaDbContext} from "../../infra/database/interfaces";
 
-describe('AddItemToBackpack application service', () => {
+describe('AddItemToBackpack command', () => {
 
     let amber: Player,
         healthPotion: Item,
@@ -37,7 +37,7 @@ describe('AddItemToBackpack application service', () => {
     })
 
     it('should atomically create 75 items in a backpack', async() => {
-        // Make 5 parallel requests to add 15 health potions (with a quantity of 5) to ambers inventory
+        // Make 5 parallel requests to add 15 health potions (with a quantity of 5) to ambers backpack
         await Promise.all(
             [...new Array(15)].map(
                 async _ => container.resolve<AddItemToBackpack>('addItemToBackpack').execute(

@@ -10,7 +10,7 @@ import {container} from "../../infra/ioc/container";
 import {MoveBackpackItem} from "./move-backpack-item";
 import {IGachaDbContext} from "../../infra/database/interfaces";
 
-describe('MoveBackpackItem application service', () => {
+describe('MoveBackpackItem command', () => {
 
     let amber: Player,
 
@@ -87,12 +87,10 @@ describe('MoveBackpackItem application service', () => {
             expect(row.position).to.equal(position);
         }
 
-        const position1Dao = getRowWithPosition(1);
-        const position2Dao = getRowWithPosition(2);
+        const position1Row = getRowWithPosition(1);
+        const position2Row = getRowWithPosition(2);
 
-        // @ts-ignore
-        inspectRow(position1Dao, 1, manaPotion.getId());
-        // @ts-ignore
-        inspectRow(position2Dao, 2, healthPotion.getId());
+        inspectRow(position1Row, 1, <number>manaPotion.getId());
+        inspectRow(position2Row, 2, <number>healthPotion.getId());
     })
 })

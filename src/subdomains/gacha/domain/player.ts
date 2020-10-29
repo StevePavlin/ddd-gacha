@@ -1,13 +1,16 @@
 import {Backpack} from "./backpack";
+import {AggregateRoot} from "../../../shared/kernel/AggregateRoot";
 
 
-export class Player {
+export class Player extends AggregateRoot {
 
     constructor(
         private name: string,
         private backpack: Backpack = new Backpack([]),
-        private id?: number
-    ) {}
+        id?: number
+    ) {
+        super(id);
+    }
 
     getName() {
         return this.name;
@@ -15,9 +18,5 @@ export class Player {
 
     getBackpack() {
         return this.backpack;
-    }
-
-    getId() {
-        return this.id;
     }
 }

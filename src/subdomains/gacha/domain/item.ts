@@ -1,15 +1,17 @@
-export class Item {
+import {AggregateRoot} from "../../../shared/kernel/AggregateRoot";
+import {Player} from "./player";
+
+
+export class Item extends AggregateRoot {
 
     constructor(
         private name: string,
-        private id?: number
-    ) {}
+        id?: number
+    ) {
+        super(id);
+    }
 
     getName() {
         return this.name;
-    }
-
-    getId() {
-        return this.id;
     }
 }

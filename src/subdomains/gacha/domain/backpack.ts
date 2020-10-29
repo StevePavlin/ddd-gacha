@@ -1,10 +1,13 @@
 import {Item} from "./item";
 import {Player} from "./player";
 import {BackpackSlot} from "./backpack-slot";
+import {ValueObject} from "../../../shared/kernel/ValueObject";
 
-export class Backpack {
+export class Backpack extends ValueObject {
 
-    constructor(private slots: BackpackSlot[]) {}
+    constructor(private slots: BackpackSlot[]) {
+        super();
+    }
 
 
     private getNextFreePosition() {

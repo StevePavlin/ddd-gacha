@@ -18,15 +18,15 @@ describe('Backpack unit tests', () => {
             amber.getBackpack().addItem(manaPotion, 1);
         })
 
-        const inspectBackpack = (papayaFruitPosition: number, keybladePosition: number) => {
+        const inspectBackpack = (healthPotionPosition: number, manaPotionPosition: number) => {
             const firstItem = amber.getBackpack().getSlots()[0];
             const secondItem = amber.getBackpack().getSlots()[1];
 
             expect(firstItem.getItem().getId()).to.equal(healthPotion.getId());
-            expect(firstItem.getPosition()).to.equal(papayaFruitPosition);
+            expect(firstItem.getPosition()).to.equal(healthPotionPosition);
 
             expect(secondItem.getItem().getId()).to.equal(manaPotion.getId());
-            expect(secondItem.getPosition()).to.equal(keybladePosition);
+            expect(secondItem.getPosition()).to.equal(manaPotionPosition);
         }
 
         it('should throw an exception if an item does not exist in the backpack', () => {
@@ -40,7 +40,7 @@ describe('Backpack unit tests', () => {
             // Inspect the beginning state of the backpack
             inspectBackpack(1, 2);
 
-            // Move papaya fruit to position 2, this should swap the positions
+            // Move health potion to position 2, this should swap the positions
             amber.getBackpack().moveItem(healthPotion, 2);
 
             // Re-inspect the state of the backpack
@@ -50,7 +50,7 @@ describe('Backpack unit tests', () => {
             // Inspect the beginning state of the backpack
             inspectBackpack(1, 2);
 
-            // Move papaya fruit to position 3, this should not swap the positions
+            // Move health potion to position 3, this should not swap the positions
             amber.getBackpack().moveItem(healthPotion, 3);
 
             // Re-inspect the state of the backpack
